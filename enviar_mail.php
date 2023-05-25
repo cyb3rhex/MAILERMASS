@@ -8,7 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Verificar si los datos son válidos antes de procesarlos
   if (filter_var($from, FILTER_VALIDATE_EMAIL) && !empty($subject) && !empty($message)) {
 
-    // Ejemplo de envío de correo utilizando la función mail() de PHP
     $to = "destinatario@example.com";
     $headers = "From: $from" . "\r\n";
     $headers .= "Reply-To: $from" . "\r\n";
@@ -22,11 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail_sent = mail($to, $subject, $email_body, $headers);
 
     if ($mail_sent) {
-      echo "El correo electrónico ha sido enviado con éxito.";
+      echo "The email has been sent successfully.";
     } else {
-      echo "Ha ocurrido un error al enviar el correo electrónico.";
+      echo "An error occurred while sending the email.";
     }
   } else {
-    echo "Por favor, completa todos los campos correctamente.";
+    echo "Please fill in all the fields correctly.";
   }
 }
